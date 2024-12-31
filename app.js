@@ -25,7 +25,6 @@ function uploadJson(event) {
         reader.onload = function(e) {
             try {
                 vocab = JSON.parse(e.target.result);
-                currentIndex = 0;
             } catch (error) {
                 alert('Invalid JSON file');
             }
@@ -87,6 +86,7 @@ function shuffleArray(array) {
 }
 
 function start() {
+    currentIndex = 0;
     vocab = shuffleArray(vocab);
     hideUploadForm();
     showCard();
