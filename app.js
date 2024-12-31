@@ -5,7 +5,7 @@ let showingAnswer = false;
 function nextQuestionOrAnswer() {
     if (vocab.length === 0) return;
 
-    if (currentIndex + 1 >= vocab.length) {
+    if (currentIndex + 1 === vocab.length && showingAnswer) {
         hideCard();
         showUploadButton();
         showStartButton();
