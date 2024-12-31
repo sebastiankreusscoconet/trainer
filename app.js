@@ -25,8 +25,6 @@ function uploadJson() {
     input.accept = 'application/json';
     input.style.display = 'none';
     input.onchange = onUploadJson;
-
-    document.body.appendChild(input);
     input.click();
 }
 
@@ -40,8 +38,6 @@ function onUploadJson(event) {
             } catch (error) {
                 alert('Invalid JSON file');
             }
-
-            document.body.removeChild(input);
         };
         reader.readAsText(file);
     }
