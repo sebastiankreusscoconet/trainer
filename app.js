@@ -36,6 +36,7 @@ function onUploadJson(event) {
         const reader = new FileReader();
         reader.onload = function(e) {
             try {
+                hideStartButton();
                 vocab = JSON.parse(e.target.result);
                 showStartButton();
             } catch (error) {
@@ -64,12 +65,19 @@ function showStartButton() {
     document.body.appendChild(startButton);
 }
 
-function hideButtons() {
+function hideUploadButton() {
     const upload = document.getElementById('uploadButton');
-    document.body.removeChild(upload);
+    if (upload !== undefined) {
+        document.body.removeChild(upload);
+    }
 
+}
+
+function hideStartButton() {
     const start = document.getElementById('startButton');
-    document.body.removeChild(start);
+    if (start !== undefined) {
+        document.body.removeChild(start);
+    }
 }
 
 function showCard() {
@@ -81,7 +89,10 @@ function showCard() {
 
 function hideCard() {
     const card = document.getElementById('card');
-    document.body.removeChild(card);
+
+    if (card !==  undefined) {
+        document.body.removeChild(card);
+    }
 }
 
 function showQuestion() {
@@ -101,19 +112,17 @@ function shuffleArray(array) {
 function start() {
     currentIndex = 0;
     vocab = shuffleArray(vocab);
-    hideButtons();
+    hideUploadButton();
+    hideStartButton();
     showCard();
     showQuestion();
 }
 
-window.onclick = () => {
+window.ontouchstart = () => {
     const card = document.getElementById('card');
-
-    if (card === undefined) {
-        return;
+    if (card !== undefined) {
+        nextQuestionOrAnswer();
     }
-
-    nextQuestionOrAnswer();
 }
 
 window.onload = () => {
