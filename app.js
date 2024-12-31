@@ -48,7 +48,7 @@ function onUploadJson(event) {
 }
 
 function showButtons() {
-    const uploadButton = document.createElement('upload');
+    const uploadButton = document.createElement('button');
     uploadButton.innerText = 'Upload';
     uploadButton.id = 'uploadButton';
     uploadButton.onclick = uploadJson;
