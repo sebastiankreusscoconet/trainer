@@ -75,7 +75,6 @@ function hideButtons() {
 function showCard() {
     const card = document.createElement('div');
     card.id = 'card';
-    card.onclick = nextQuestionOrAnswer;
 
     document.body.appendChild(card);
 }
@@ -105,6 +104,16 @@ function start() {
     hideButtons();
     showCard();
     showQuestion();
+}
+
+window.onclick = () => {
+    const card = document.getElementById('card');
+
+    if (card === undefined) {
+        return;
+    }
+
+    nextQuestionOrAnswer();
 }
 
 window.onload = () => {
