@@ -5,9 +5,10 @@ let showingAnswer = false;
 function nextQuestionOrAnswer() {
     if (vocab.length === 0) return;
 
-    if (currentIndex >= vocab.length) {
+    if (currentIndex + 1 >= vocab.length) {
         hideCard();
-        showButtons();
+        showUploadButton();
+        showStartButton();
     }
 
     if (showingAnswer) {
@@ -35,6 +36,7 @@ function onUploadJson(event) {
         reader.onload = function(e) {
             try {
                 vocab = JSON.parse(e.target.result);
+                showStartButton();
             } catch (error) {
                 alert('Invalid JSON file');
             }
@@ -43,14 +45,16 @@ function onUploadJson(event) {
     }
 }
 
-function showButtons() {
+function showUploadButton() {
     const uploadButton = document.createElement('button');
     uploadButton.innerText = 'Upload';
     uploadButton.id = 'uploadButton';
     uploadButton.onclick = uploadJson;
 
     document.body.appendChild(uploadButton);
+}
 
+function showStartButton() {
     const startButton = document.createElement('button');
     startButton.innerText = 'Start';
     startButton.id = 'startButton';
@@ -103,5 +107,5 @@ function start() {
 }
 
 window.onload = () => {
-    showButtons();
+    showUploadButton();
 }
