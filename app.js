@@ -75,6 +75,7 @@ function hideUploadButton() {
 
 function hideStartButton() {
     const startButton = document.getElementById('startButton');
+    console.log(startButton);
     if (startButton !== undefined) {
         document.body.removeChild(startButton);
     }
@@ -89,7 +90,6 @@ function showCard() {
 
 function hideCard() {
     const card = document.getElementById('card');
-
     if (card !==  undefined) {
         document.body.removeChild(card);
     }
