@@ -47,7 +47,7 @@ function showUploadForm() {
     button.id = 'startButton';
     button.onclick = start;
 
-    document.body.appendChild(start);
+    document.body.appendChild(button);
 }
 
 function hideUploadForm() {
