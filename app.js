@@ -66,17 +66,17 @@ function showStartButton() {
 }
 
 function hideUploadButton() {
-    const upload = document.getElementById('uploadButton');
-    if (upload !== undefined) {
-        document.body.removeChild(upload);
+    const uploadButton = document.getElementById('uploadButton');
+    if (uploadButton !== undefined) {
+        document.body.removeChild(uploadButton);
     }
 
 }
 
 function hideStartButton() {
-    const start = document.getElementById('startButton');
-    if (start !== undefined) {
-        document.body.removeChild(start);
+    const startButton = document.getElementById('startButton');
+    if (startButton !== undefined) {
+        document.body.removeChild(startButton);
     }
 }
 
