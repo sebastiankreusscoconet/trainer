@@ -51,7 +51,7 @@ function showUploadButton() {
     const uploadButton = document.createElement('button');
     uploadButton.innerText = 'Upload';
     uploadButton.id = 'uploadButton';
-    uploadButton.onclick = uploadJson;
+    uploadButton.ontouchstart = uploadJson;
 
     document.body.appendChild(uploadButton);
 }
@@ -60,7 +60,7 @@ function showStartButton() {
     const startButton = document.createElement('button');
     startButton.innerText = 'Start';
     startButton.id = 'startButton';
-    startButton.onclick = start;
+    startButton.ontouchstart = start;
 
     document.body.appendChild(startButton);
 }
