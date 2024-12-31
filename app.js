@@ -117,7 +117,7 @@ function start() {
     showQuestion();
 }
 
-window.onclick = () => {
+window.ontouchstart = () => {
     const card = document.getElementById('card');
     if (card !== null) {
         nextQuestionOrAnswer();
