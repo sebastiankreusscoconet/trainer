@@ -7,7 +7,7 @@ function nextQuestionOrAnswer() {
 
     if (currentIndex >= vocab.length) {
         hideCard();
-        showUploadForm();
+        showButtons();
     }
 
     if (showingAnswer) {
@@ -18,7 +18,19 @@ function nextQuestionOrAnswer() {
     }
 }
 
-function uploadJson(event) {
+function uploadJson() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.id = 'fileInput';
+    input.accept = 'application/json';
+    input.style.display = 'none';
+    input.onchange = onUploadJson;
+
+    document.body.appendChild(input);
+    input.click();
+}
+
+function onUploadJson(event) {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
@@ -28,34 +40,35 @@ function uploadJson(event) {
             } catch (error) {
                 alert('Invalid JSON file');
             }
+
+            document.body.removeChild(input);
         };
         reader.readAsText(file);
     }
 }
 
-function showUploadForm() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.id = 'fileInput';
-    input.accept = 'application/json';
-    input.onchange = uploadJson;
+function showButtons() {
+    const upload = document.createElement('upload');
+    upload.innerText = 'Upload';
+    upload.id = 'uploadButton';
+    upload.onclick = uploadJson;
 
-    document.body.appendChild(input);
+    document.body.appendChild(upload);
 
-    const button = document.createElement('button');
-    button.innerText = 'Start';
-    button.id = 'startButton';
-    button.onclick = start;
+    const start = document.createElement('button');
+    start.innerText = 'Start';
+    start.id = 'startButton';
+    start.onclick = start;
 
-    document.body.appendChild(button);
+    document.body.appendChild(start);
 }
 
-function hideUploadForm() {
-    const input = document.getElementById('fileInput');
-    document.body.removeChild(input);
+function hideButtons() {
+    const upload = document.getElementById('uploadButton');
+    document.body.removeChild(upload);
 
-    const button = document.getElementById('startButton');
-    document.body.removeChild(button);
+    const start = document.getElementById('startButton');
+    document.body.removeChild(start);
 }
 
 function showCard() {
@@ -88,11 +101,11 @@ function shuffleArray(array) {
 function start() {
     currentIndex = 0;
     vocab = shuffleArray(vocab);
-    hideUploadForm();
+    hideButtons();
     showCard();
     showQuestion();
 }
 
 window.onload = () => {
-    showUploadForm();
+    showButtons();
 }
