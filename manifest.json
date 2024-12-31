@@ -1,0 +1,10 @@
+{
+  "theme_color": "#8936FF",
+  "background_color": "#f0f0f0",
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en",
+  "name": "Trainer",
+  "short_name": "Trainer"
+}

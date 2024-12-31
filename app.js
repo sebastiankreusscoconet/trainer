@@ -48,19 +48,19 @@ function onUploadJson(event) {
 }
 
 function showButtons() {
-    const upload = document.createElement('upload');
-    upload.innerText = 'Upload';
-    upload.id = 'uploadButton';
-    upload.onclick = uploadJson;
+    const uploadButton = document.createElement('upload');
+    uploadButton.innerText = 'Upload';
+    uploadButton.id = 'uploadButton';
+    uploadButton.onclick = uploadJson;
 
-    document.body.appendChild(upload);
+    document.body.appendChild(uploadButton);
 
-    const start = document.createElement('button');
-    start.innerText = 'Start';
-    start.id = 'startButton';
-    start.onclick = start;
+    const startButton = document.createElement('button');
+    startButton.innerText = 'Start';
+    startButton.id = 'startButton';
+    startButton.onclick = start;
 
-    document.body.appendChild(start);
+    document.body.appendChild(startButton);
 }
 
 function hideButtons() {
