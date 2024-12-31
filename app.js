@@ -35,13 +35,13 @@ function onUploadJson(event) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
+            hideStartButton();
             try {
-                hideStartButton();
                 vocab = JSON.parse(e.target.result);
-                showStartButton();
             } catch (error) {
                 alert('Invalid JSON file');
             }
+            showStartButton();
         };
         reader.readAsText(file);
     }
