@@ -67,7 +67,7 @@ function showStartButton() {
 
 function hideUploadButton() {
     const uploadButton = document.getElementById('uploadButton');
-    if (uploadButton !== undefined) {
+    if (uploadButton !== null) {
         document.body.removeChild(uploadButton);
     }
 
@@ -75,8 +75,7 @@ function hideUploadButton() {
 
 function hideStartButton() {
     const startButton = document.getElementById('startButton');
-    console.log(startButton);
-    if (startButton !== undefined) {
+    if (startButton !== null) {
         document.body.removeChild(startButton);
     }
 }
@@ -90,7 +89,7 @@ function showCard() {
 
 function hideCard() {
     const card = document.getElementById('card');
-    if (card !==  undefined) {
+    if (card !==  null) {
         document.body.removeChild(card);
     }
 }
@@ -120,7 +119,7 @@ function start() {
 
 window.ontouchstart = () => {
     const card = document.getElementById('card');
-    if (card !== undefined) {
+    if (card !== null) {
         nextQuestionOrAnswer();
     }
 }
