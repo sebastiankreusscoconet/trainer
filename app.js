@@ -9,6 +9,7 @@ function nextQuestionOrAnswer() {
         hideCard();
         showUploadButton();
         showStartButton();
+        return;
     }
 
     if (showingAnswer) {

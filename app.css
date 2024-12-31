@@ -33,6 +33,7 @@ button {
     appearance: none;
     border: none;
     padding: 20px;
+    min-width: 200px;
 }
 
 #uploadButton {
