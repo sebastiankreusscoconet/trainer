@@ -51,7 +51,7 @@ function showUploadButton() {
     const uploadButton = document.createElement('button');
     uploadButton.innerText = 'Upload';
     uploadButton.id = 'uploadButton';
-    uploadButton.ontouchstart = uploadJson;
+    uploadButton.onclick = uploadJson;
 
     document.body.appendChild(uploadButton);
 }
@@ -60,7 +60,7 @@ function showStartButton() {
     const startButton = document.createElement('button');
     startButton.innerText = 'Start';
     startButton.id = 'startButton';
-    startButton.ontouchstart = start;
+    startButton.onclick = start;
 
     document.body.appendChild(startButton);
 }
@@ -117,7 +117,7 @@ function start() {
     showQuestion();
 }
 
-window.ontouchstart = () => {
+window.onclick = () => {
     const card = document.getElementById('card');
     if (card !== null) {
         nextQuestionOrAnswer();
